@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,4 +40,8 @@ public class StudentEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "laptop_id", nullable = false)
     private LaptopEntity laptopEntity;  
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "batch_id", nullable = false)
+    private BatchEntity batchEntity;
 }
