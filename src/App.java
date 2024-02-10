@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -19,6 +20,16 @@ public class App {
         BatchRepository batchRepository = new BatchRepository();
         List<BatchEntity> batchEntities = batchRepository.getAll(SessionFactoryConfiguration.getInstance().getSession());
         batchEntities.forEach(e-> {
+            System.out.println(e);
+        });
+
+        List<Object[]> batchData = batchRepository.getAllNative(SessionFactoryConfiguration.getInstance().getSession());
+        batchData.forEach(e-> {
+            System.out.println(Arrays.toString(e));
+        });
+
+        List<String> batchNames = batchRepository.getAllName(SessionFactoryConfiguration.getInstance().getSession());
+        batchNames.forEach(e-> {
             System.out.println(e);
         });
     }
