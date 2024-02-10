@@ -1,10 +1,13 @@
 package entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -32,5 +35,8 @@ public class StudentEntity {
 
     @Column(name = "address", nullable = false, length = 250)
     private String address;
-    
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "laptop_id", nullable = false)
+    private LaptopEntity laptopEntity;  
 }

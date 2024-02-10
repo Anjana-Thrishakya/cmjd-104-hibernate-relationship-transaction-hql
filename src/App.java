@@ -1,5 +1,6 @@
 import org.hibernate.Session;
 
+import entity.StudentEntity;
 import util.SessionFactoryConfiguration;
 
 public class App {
